@@ -2,9 +2,9 @@ package com.pluralsight;
 
 public class Room {
     private int numberOfbeds;
-      private double price;
-      private boolean isOccupied;
-      private boolean isDirty;
+    private double price;
+    private boolean isOccupied;
+    private boolean isDirty;
 
     public Room(int numberOfBeds, double price, boolean occupied, boolean dirty) {
         this.numberOfbeds = numberOfBeds;
@@ -13,24 +13,50 @@ public class Room {
         this.isDirty = dirty;
     }
 
-    public int getNumberOfBeds() { return numberOfbeds; }
-    public double getPrice() { return price; }
-    public boolean isOccupied() { return isOccupied; }
-    public boolean isDirty() { return isDirty; }
+    public int getNumberOfBeds() {
+        return numberOfbeds;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public boolean isOccupied() {
+        return isOccupied;
+    }
+
+    public boolean isDirty() {
+        return isDirty;
+    }
 
     // Derived Getter: Only available if NOT occupied AND NOT dirty
     public boolean isAvailable() {
         return !this.isOccupied && !this.isDirty;
     }
 
-    @Override
-    public String toString() {
-        return "Room{" +
-                "numberOfbeds=" + numberOfbeds +
-                ", price=" + price +
-                ", isOccupied=" + isOccupied +
-                ", isDirty=" + isDirty +
-                '}';
+    public void checkIn() {
+        this.isOccupied = true;
+        this.isDirty = true;
     }
+
+    public void checkout() {
+        this.isOccupied = false;
+    }
+
+    public void cleanRoom(){
+        this.isDirty = false;
+
+}
+
+
+@Override
+public String toString() {
+    return "Room{" +
+            "numberOfbeds=" + numberOfbeds +
+            ", price=" + price +
+            ", isOccupied=" + isOccupied +
+            ", isDirty=" + isDirty +
+            '}';
+}
 }
 
